@@ -1,0 +1,52 @@
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+
+
+
+# 1- charger les donnees
+def charge_donnees(a):
+    file = pd.read_csv(a)
+    return file
+data= charge_donnees("telecom_churn.csv")
+
+def transforme_variable(df):
+    list_columns=[]
+# 1- Convertir la colonne 'TotalCharges' en numérique
+    df['TotalCharges'] = pd.to_numeric(df['TotalCharges'], errors= 'coerce')
+
+# 2- Remplacer les valeurs manquantes dans 'TotalCharges' par la moyenne
+    moyenne = df['TotalCharges'].mean()
+    df['TotalCharges'] = df['TotalCharges'].fillna(moyenne)
+
+     
+# 3- Supprimer les colonnes inutiles
+    df = df.drop(columns=['customerID', 'gender'])
+
+# 4- Encoder les variables catégorielles
+    for col in df.columns:
+        if df[col].dtypes == 'object':
+          list_columns.append(col)
+    print(list_columns)
+    df['list_columns'] = le.fit_transform(df['list_columns'])
+
+nettoyage = transforme_variable(data)
+
+
+def split_features():
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
