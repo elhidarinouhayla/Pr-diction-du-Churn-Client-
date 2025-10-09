@@ -52,7 +52,7 @@ data_clean = pretraitement_variable(data)
 
 numeric_cols =data[['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges']]
 clean_colomns = pd.concat([data_clean,numeric_cols], axis=0)
-print(clean_colomns)
+
 
 
 
@@ -75,8 +75,8 @@ def normalized_data(x_test,x_train):
 
 # 1- normalisation des variables numerique
     scaler = MinMaxScaler()
-    x_test = scaler.fit_transform(x_test)
-    x_train = scaler.transform(x_train)
+    x_test = scaler.transform(x_test)
+    x_train = scaler.fit_transform(x_train)
     return x_test,x_train
 
 
