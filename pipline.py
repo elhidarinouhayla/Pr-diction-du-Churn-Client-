@@ -75,8 +75,8 @@ def normalized_data(x_test,x_train):
 
 # 1- normalisation des variables numerique
     scaler = MinMaxScaler()
-    x_test[clean_colomns] = scaler.fit_transform(x_test[clean_colomns])
-    x_train[clean_colomns] = scaler.fit_transform(x_train[clean_colomns])
+    x_test = scaler.fit_transform(x_test)
+    x_train = scaler.transform(x_train)
     return x_test,x_train
 
 
